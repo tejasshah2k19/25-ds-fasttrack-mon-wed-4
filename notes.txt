@@ -1,0 +1,6 @@
+Stack 
+
+Push  - insert 
+pop   - remove 
+
+lifo - last in first out 
