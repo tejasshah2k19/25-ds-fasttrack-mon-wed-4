@@ -15,3 +15,17 @@ stack manage pointer -> TOP
 
 ------------------------------------------------------
 
+stack -> int {num}
+stack -> char 
+
+
+1) string reverse using Stack
+
+
+run -> Enter String 
+                royal
+                layor
+
+
+
+------------------------------------------------------
