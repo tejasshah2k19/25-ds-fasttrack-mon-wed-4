@@ -4,3 +4,14 @@ Push  - insert
 pop   - remove 
 
 lifo - last in first out 
+
+
+Stack -> Lifo 
+
+insert -> push 
+remove -> pop 
+
+stack manage pointer -> TOP 
+
+------------------------------------------------------
+

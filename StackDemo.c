@@ -1,19 +1,44 @@
 #include <stdio.h>
+#include <stdlib.h>
 #define SIZE 5
 
 int stack[SIZE];
 int top = -1; // stack is empty
 
-void push(int num)
+// push -> add -> return added item
+// push -> full -> -1
+int push(int num)
 {
-    top++;
-    stack[top] = num;
+    if (top == SIZE - 1)
+    {
+        return -1;
+    }
+    else
+    {
+        top++;
+        stack[top] = num;
+        return num;
+    }
 }
 
-void pop()
+// pop -> remove ->
+//  return remove item on success
+//  return -1 on empty
+int pop()
 {
-    printf("\n%d pop", stack[top]);
-    top--;
+    int num;
+    if (top == -1)
+    {
+        // printf("\nStack Empty");
+        return -1;
+    }
+    else
+    {
+        // printf("\n%d pop", stack[top]);
+        num = stack[top];
+        top--;
+        return num;
+    }
 }
 
 void display()
@@ -28,17 +53,51 @@ void display()
 int main()
 {
 
-    push(10);
-    push(20);
-    push(30);
-    pop();
-    pop();
-    push(40);
-    push(50);
-    pop();
-    push(100);
+    int choice;
+    int num;
+    // any number is consider as true
+    // 0 : false
+    // 1 : true {any number}
+    // true -> bool boolean
 
-    display();
+    while (-1)
+    {
+        printf("\n1 For PUSH\n2 For POP\n3 For Display\n0 For Exit");
+        printf("\nEnter choice");
+        scanf("%d", &choice);
 
+        switch (choice)
+        {
+        case 1:
+            printf("\nEnter Number");
+            scanf("%d", &num);
+            num = push(num);
+            if (num == -1)
+            {
+                printf("\nStack OVERFLOW");
+            }
+            break;
+        case 3 - 1:
+            num = pop();
+            if (num == -1)
+            {
+                printf("\nStack Is Empty");
+            }
+            else
+            {
+                printf(" %d removed", num);
+            }
+            break;
+        case 3 * 1:
+            display();
+            break;
+        case 0:
+            exit(0);
+
+        default:
+            printf("\nInvalid Choice");
+            break;
+        } // switch
+    } // while
     return 0;
 }
