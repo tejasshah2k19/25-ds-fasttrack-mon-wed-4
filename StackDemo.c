@@ -50,11 +50,23 @@ void display()
         printf("\n%d", stack[i]);
     }
 }
+
+void peek()
+{
+    printf(" %d ", stack[top]);
+}
+
+void peep(int location)
+{
+    int index = top - location + 1;
+    printf(" %d", stack[index]);
+}
 int main()
 {
 
     int choice;
     int num;
+    int location;
     // any number is consider as true
     // 0 : false
     // 1 : true {any number}
@@ -62,7 +74,7 @@ int main()
 
     while (-1)
     {
-        printf("\n1 For PUSH\n2 For POP\n3 For Display\n0 For Exit");
+        printf("\n1 For PUSH\n2 For POP\n3 For Display\n4 PEEK\n5 PEEP\n0 For Exit");
         printf("\nEnter choice");
         scanf("%d", &choice);
 
@@ -91,6 +103,13 @@ int main()
         case 3 * 1:
             display();
             break;
+        case 4:
+            peek();
+            break;
+        case 5:
+            printf("Enter location");
+            scanf("%d",&location);
+            peep(location);
         case 0:
             exit(0);
 
