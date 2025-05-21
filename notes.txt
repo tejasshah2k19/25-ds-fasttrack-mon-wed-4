@@ -43,3 +43,65 @@ top -> ?
     1   20  
     0   10    
         stack 
+    
+-------------------------------------------------------
+
+
+royal 
+layor 
+
+
+-------------------------------------------------------
+
+Stack -> LiFo : Last in First Out  : chat log history ctrl+z 
+Queue -> FiFo : First In First Out : line-queue , Printer Print , spotify music list , play store 3 app install ,  
+
+-------------------------------------------------------
+
+insert -> enQueue 
+remove -> deQueue 
+all   -> display 
+
+-------------------------------------------------------
+queue -> front and rear 
+
+front -> insert 
+rear  -> remove 
+
+-------------------------------------------------------
+
+
+(1+3)-(8*9) => yes 
+
+(1+3)-(8*9)) => NO
+
+{a*b}+[c-d]+(a*c) => yes 
+
+{a*b]+[c-d}+(a*c) => No 
+
+
+program -> Valid / InValid 
+
+
+()() => yes 
+
+()()) => NO
+
+{}[]() => yes 
+
+{][}() => No 
+
+((((((([][][][][{{{{{}}}}}]))))))) => YES 
+
+()()( => NO
+
+
+STACK -> 
+
+---------------------------------------------------
+ 
+
+
+
+
+
