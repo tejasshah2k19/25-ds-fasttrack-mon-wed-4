@@ -176,6 +176,92 @@ print(a);
 
  
 ---------------------------------------------------------------
+SMA -> static memory allocatio / implicit memory allocation 
+
+
+start 
+int a; // 4 byte 
+
+
+int a[20]; // 40 byte 
+
+
+
+
+10 elements -> 11 element? add ? overflow 
+
+3 elements -> 17 elements free -- W/u  
+
+
+
+end 
+
+explicit memory allocation
+DMA -> when u ask -> alloacte 
+       when u feel not -> deallocate -- release 
+
+
+
+C       :  calloc()  malloc() | free() 
+C++     :  new | delete 
+Java    :  new | GC 
+
+
+C       :  calloc()  malloc() | free()
+
+DMA 
+1:calloc  -> allocate memory 
+2:malloc  -> alloacte memory
+3:free    -> release allocated memory 
+4:realloc -> resize the allocated memory 
+ 
+header ---> stdlib.h 
+
+calloc vs malloc 
+
+int k; 4 byte -> malloc
+
+int t[10]; // 40byte {4byte 10} calloc 
+
+free 
+
+memory ---> pointer 
+-------------------------------------------------------------------------------
+
+a 
+50 
+array
+
+
+struct->
+50 students 
+    name 
+    colg 
+    age 
+    address 
+
+
+struct student{
+    char name[30];
+    int maths;
+    int sci;
+    int eng; 
+    float perc; 
+    
+};
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
