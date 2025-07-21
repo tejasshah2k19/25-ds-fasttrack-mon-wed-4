@@ -11,7 +11,7 @@ struct student
                           // 46
                           // 16 16 16
     struct student *next; // self ref structure
-
+    struct student *prev; 
 } *head = NULL, *last = NULL;
 
 void addNodeLast()
@@ -23,6 +23,7 @@ void addNodeLast()
         printf("\nEnter name and marks of three subjects : ");
         scanf("%s%d%d%d", &head->name, &head->maths, &head->sci, &head->eng);
         head->next = NULL;
+        head->prev = NULL;
         last = head;
     }
     else
@@ -35,6 +36,7 @@ void addNodeLast()
         tmp->next = NULL;
 
         last->next = tmp;
+        tmp->prev = last; 
         last = tmp;
     }
 }
@@ -45,6 +47,8 @@ void addNodeBeg()
     printf("\nEnter name and marks of three subjects : ");
     scanf("%s%d%d%d", &tmp->name, &tmp->maths, &tmp->sci, &tmp->eng);
     tmp->next = head;
+    head->prev = tmp; 
+    tmp->prev = NULL; 
     head = tmp;
 }
 void addNodeAny()
