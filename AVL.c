@@ -30,6 +30,23 @@ int calculateHeight(struct node *root)
         return rightHeight + 1;
 }
 
+int calculateBalanceFactor(struct node *root)
+{
+    int leftHeight = 0;
+    int rightHeight = 0;
+
+    if (root->left != NULL)
+    {
+        leftHeight = root->left->height;
+    }
+    if (root->right != NULL)
+    {
+        rightHeight = root->right->height;
+    }
+
+    return leftHeight - rightHeight;
+}
+
 struct node *addNode(struct node *root, int data)
 {
 
@@ -56,6 +73,33 @@ struct node *addNode(struct node *root, int data)
 
     root->height = calculateHeight(root);
 
+    // cal bf
+    int bf = calculateBalanceFactor(root);
+    if (bf < -1)
+    {
+        if (root->right->data > data)
+        {
+            printf("\nImbalance => %d with bf = %d ==> Right Left", root->data, bf);
+        }
+        else
+        {
+            printf("\nImbalance => %d with bf = %d ==> Right Right", root->data, bf);
+        }
+    }
+    else if (bf > 1)
+    {
+        if (root->left->data > data)
+        {
+            printf("\nImbalance => %d with bf = %d ==> Left Left", root->data, bf);
+        }
+        else
+        {
+            printf("\nImbalance => %d with bf = %d ==> Left Right", root->data, bf);
+        }
+    }
+
+    // rotate
+
     return root;
 }
 
@@ -73,16 +117,24 @@ int main()
 {
 
     struct node *root = NULL;
-    root = addNode(root, 50);
-    printf(" %d\n", root->height); // 1
-    root = addNode(root, 40);
-    printf(" %d %d\n", root->height, root->left->height); // 2 1
-    root = addNode(root, 30);
-    printf(" %d %d\n", root->height, root->left->height); // 3 2
-    
-    root = addNode(root, 70);
-    printf(" %d %d\n", root->height, root->left->height); // 3 2
-    
-    
+    // LL
+    //  root = addNode(root,50);
+    //  root = addNode(root,40);
+    //  root = addNode(root,30);
+
+    // RR
+    //  root = addNode(root, 30);
+    //  root = addNode(root, 40);
+    //  root = addNode(root, 50);
+
+    // RL
+    // root = addNode(root, 30);
+    // root = addNode(root, 50);
+    // root = addNode(root, 40);
+
+    // LR
+    // root = addNode(root, 50);
+    // root = addNode(root, 30);
+    // root = addNode(root, 40);
     return 0;
 }
