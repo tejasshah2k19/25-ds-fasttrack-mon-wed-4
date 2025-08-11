@@ -53,6 +53,19 @@ struct node *rightRotate(struct node *root)
     struct node *y = root->left;
     root->left = y->right;
     y->right = root;
+    root->height = calculateHeight(root);
+    y->height = calculateHeight(y);
+
+    return y;
+}
+
+struct node *leftRotate(struct node *root)
+{
+    struct node *y = root->right;
+    root->right = y->left;
+    y->left = root;
+    root->height = calculateHeight(root);
+    y->height = calculateHeight(y);
     return y;
 }
 struct node *addNode(struct node *root, int data)
@@ -92,6 +105,7 @@ struct node *addNode(struct node *root, int data)
         else
         {
             printf("\nImbalance => %d with bf = %d ==> Right Right", root->data, bf);
+            root = leftRotate(root);
         }
     }
     else if (bf > 1)
@@ -118,7 +132,7 @@ void inOrder(struct node *root)
     if (root != NULL)
     {
         inOrder(root->left);
-        printf("%d ", root->data);
+        printf("%d(%d) ", root->data, root->height);
         inOrder(root->right);
     }
 }
@@ -128,18 +142,20 @@ int main()
 
     struct node *root = NULL;
     // LL
-    root = addNode(root, 50);
-    root=addNode(root,60);
-    root = addNode(root, 40);
-    root = addNode(root, 45);
-    root = addNode(root, 30);
-    root = addNode(root, 20);
-    
+    // root = addNode(root, 50);
+    // root=addNode(root,60);
+    // root = addNode(root, 40);
+    // root = addNode(root, 45);
+    // root = addNode(root, 30);
+    // root = addNode(root, 20);
 
     // RR
-    //  root = addNode(root, 30);
-    //  root = addNode(root, 40);
-    //  root = addNode(root, 50);
+    root = addNode(root, 30);
+    root = addNode(root, 20);
+    root = addNode(root, 50);
+    root = addNode(root, 60);
+    root = addNode(root, 45);
+    root = addNode(root, 70);
 
     // RL
     // root = addNode(root, 30);
