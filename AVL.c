@@ -47,6 +47,14 @@ int calculateBalanceFactor(struct node *root)
     return leftHeight - rightHeight;
 }
 
+struct node *rightRotate(struct node *root)
+{
+
+    struct node *y = root->left;
+    root->left = y->right;
+    y->right = root;
+    return y;
+}
 struct node *addNode(struct node *root, int data)
 {
 
@@ -74,7 +82,7 @@ struct node *addNode(struct node *root, int data)
     root->height = calculateHeight(root);
 
     // cal bf
-    int bf = calculateBalanceFactor(root);
+    int bf = calculateBalanceFactor(root); // 50
     if (bf < -1)
     {
         if (root->right->data > data)
@@ -91,6 +99,8 @@ struct node *addNode(struct node *root, int data)
         if (root->left->data > data)
         {
             printf("\nImbalance => %d with bf = %d ==> Left Left", root->data, bf);
+
+            root = rightRotate(root);
         }
         else
         {
@@ -118,9 +128,13 @@ int main()
 
     struct node *root = NULL;
     // LL
-    //  root = addNode(root,50);
-    //  root = addNode(root,40);
-    //  root = addNode(root,30);
+    root = addNode(root, 50);
+    root=addNode(root,60);
+    root = addNode(root, 40);
+    root = addNode(root, 45);
+    root = addNode(root, 30);
+    root = addNode(root, 20);
+    
 
     // RR
     //  root = addNode(root, 30);
@@ -136,5 +150,7 @@ int main()
     // root = addNode(root, 50);
     // root = addNode(root, 30);
     // root = addNode(root, 40);
+
+    inOrder(root);
     return 0;
 }
