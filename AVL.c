@@ -101,6 +101,8 @@ struct node *addNode(struct node *root, int data)
         if (root->right->data > data)
         {
             printf("\nImbalance => %d with bf = %d ==> Right Left", root->data, bf);
+            // rightRotate();
+            // leftRotate();
         }
         else
         {
@@ -119,6 +121,8 @@ struct node *addNode(struct node *root, int data)
         else
         {
             printf("\nImbalance => %d with bf = %d ==> Left Right", root->data, bf);
+            // leftRotate();
+            // rightRotate();
         }
     }
 
